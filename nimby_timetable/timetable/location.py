@@ -23,8 +23,12 @@ class Location:
         separator = "/" if is_pass else ":"
 
         s = f"{t.hour:02d}{separator}{t.minute:02d}"
-        if t.second == 30:
+        if t.second == 15:
+            s += "¼"
+        elif t.second == 30:
             s += "½"
+        if t.second == 45:
+            s += "¾"
         
         return s
     
