@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "nimby_timetable"
+version = "1.0.0"
+description = ""
+authors = ["Daniel Evans <daniel.fred.evans@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.31.0"
+beautifulsoup4 = "^4.12.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
