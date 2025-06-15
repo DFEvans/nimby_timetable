@@ -1,5 +1,4 @@
 from datetime import datetime, timedelta
-from typing import Optional
 from bs4 import BeautifulSoup
 from bs4.element import Tag
 
@@ -112,7 +111,7 @@ class RTTParser:
         )
         return parsed_location
 
-    def parse_time(self, time_string: str, date: datetime, last_time: datetime) -> Optional[datetime]:
+    def parse_time(self, time_string: str, date: datetime, last_time: datetime) -> datetime | None:
         if time_string == "":
             return None
 

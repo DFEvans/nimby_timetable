@@ -2,20 +2,19 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from datetime import datetime, timedelta
-from typing import Optional
 
 @dataclass
 class Location:
     name: str
-    arrival_time: Optional[datetime]
-    departure_time: Optional[datetime]
-    platform: Optional[str]
+    arrival_time: datetime | None
+    departure_time: datetime | None
+    platform: str | None
     is_pass: bool
-    path: Optional[str]
-    line: Optional[str]
-    path_allowance: Optional[str]
-    eng_allowance: Optional[str]
-    perf_allowance: Optional[str]
+    path: str | None
+    line: str | None
+    path_allowance: str | None
+    eng_allowance: str | None
+    perf_allowance: str | None
 
     def format_time(self, t: datetime, is_pass: bool = False) -> str:
         if not t:
@@ -55,17 +54,17 @@ class Location:
 @dataclass
 class NimbyLocation:
     name: str
-    departure: Optional[timedelta]
-    platform: Optional[str]
+    departure: timedelta | None
+    platform: str | None
     is_pass: bool
-    path: Optional[str]
-    line: Optional[str]
-    path_allowance: Optional[str]
-    eng_allowance: Optional[str]
-    perf_allowance: Optional[str]
+    path: str | None
+    line: str | None
+    path_allowance: str | None
+    eng_allowance: str | None
+    perf_allowance: str | None
 
     @classmethod
-    def from_location(cls, departure: Optional[timedelta], location: Location) -> NimbyLocation:
+    def from_location(cls, departure: timedelta | None, location: Location) -> NimbyLocation:
         return cls(
             name=location.name,
             departure=departure,

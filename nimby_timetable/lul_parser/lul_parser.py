@@ -1,5 +1,4 @@
 from datetime import datetime, timedelta
-from typing import Optional
 
 from nimby_timetable.timetable.location import Location
 from nimby_timetable.timetable.timetable import Timetable
@@ -57,7 +56,7 @@ def parse_time(digits: list[str], date: datetime, last_time: datetime):
     return time
 
 
-def parse_offset(chars: list[str], departure_time: datetime) -> Optional[datetime]:
+def parse_offset(chars: list[str], departure_time: datetime) -> datetime | None:
     for char in chars:
         try:
             offset = OFFSET_LOOKUP[char]
