@@ -38,9 +38,10 @@ Crewe [CRE]                              1
 ## London Underground (LUL) Parser
 
 This will take a set of copy-pasted times for a train from the London
-Underground working timetable PDFs. The parser will deal with the data
-being presented with some unusual line breaks (particularly for fractional
-minute timings).
+Underground working timetable PDFs: https://tfl.gov.uk/corporate/publications-and-reports/working-timetables
+
+The parser will deal with the data being presented with some unusual line
+breaks when copy-pasted (particularly for fractional minute timings).
 
 When copying times, the stations aren't known (as they are on the far left
 of the page), so stations are simply denoted S01, S02, ... in sequence.
