@@ -83,11 +83,12 @@ def parse_lines(lines: list[str]) -> Timetable:
             elif not char.isspace():
                 chars.append(char)
 
-        if len(digits) == 1:
-            # Probably a platform number
+        if len(digits) < 2:
+            # Either no digits, or a line with a single digit
+            # which is usually a platform number
             continue
-        
-        if len(digits) != 4 and lines:
+
+        if len(digits) != 4 and len(digits) != 6 and lines:
             line = lines.pop(0)
             for char in line:
                 if char.isnumeric():
