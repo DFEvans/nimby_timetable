@@ -16,6 +16,8 @@ def main():
     try:
         while True:
             url = input("RTT URL: ")
+            if not url:
+                continue
 
             timetable = rtt_parser.parse_page(
                 downloader.download(url),
