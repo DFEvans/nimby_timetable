@@ -3,6 +3,8 @@ from dataclasses import dataclass
 from nimby_timetable.downloader.downloader import WebDownloader
 from nimby_timetable.rtt_parser.rtt_parser import RTTParser
 
+from requests.exceptions import MissingSchema
+
 
 @dataclass
 class CommandLineArguments:
@@ -24,7 +26,7 @@ def main():
                     downloader.download(url),
                     rtt_parser.get_date_from_url(url),
                 )
-            except FileNotFoundError:
+            except (FileNotFoundError, MissingSchema):
                 print("Could not find that URL")
                 continue
             print()
