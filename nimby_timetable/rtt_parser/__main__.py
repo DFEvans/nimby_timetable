@@ -19,10 +19,14 @@ def main():
             if not url:
                 continue
 
-            timetable = rtt_parser.parse_page(
-                downloader.download(url),
-                rtt_parser.get_date_from_url(url),
-            )
+            try:
+                timetable = rtt_parser.parse_page(
+                    downloader.download(url),
+                    rtt_parser.get_date_from_url(url),
+                )
+            except FileNotFoundError:
+                print("Could not find that URL")
+                continue
             print()
             print(timetable.td, timetable.locations[0].format_time(timetable.locations[0].departure_time), timetable.locations[0].timetable_code, "-", timetable.locations[-1].timetable_code)
             print(timetable.to_nimby_timetable())
